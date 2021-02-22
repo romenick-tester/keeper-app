@@ -11,11 +11,17 @@ function App() {
         })
     }
 
+    function deleteNote(id) {
+        const newNotes = notes.filter((item) => item.id !== id);
+
+        setNotes(newNotes);
+    }
+
     return (
         <div>
             <Header/>
             <CreateNote postNote={postNote} />
-            {notes.map((note) => <Note key={note.key} {...note} />)}
+            {notes.map((note) => <Note key={note.id} {...note} deleteNote={deleteNote} />)}
             <Footer/>
         </div>
     )
