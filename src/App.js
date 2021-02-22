@@ -1,10 +1,13 @@
 import React from "react";
 import { Header, Footer, Note } from "./components";
+import { data as notes } from "./manager"
 
 function App() {
     return (
         <div>
-            <h1>Hello</h1>
+            <Header/>
+            {notes.map((note) => <Note key={note.key} {...note} />)}
+            <Footer/>
         </div>
     )
 }
